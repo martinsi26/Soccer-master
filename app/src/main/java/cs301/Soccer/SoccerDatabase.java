@@ -75,6 +75,20 @@ public class SoccerDatabase implements SoccerDB {
     }
 
     /**
+     * increment a player's fouls
+     *
+     * @see SoccerDB#bumpFouls(String, String)
+     */
+    @Override
+    public boolean bumpFouls(String firstName, String lastName) {
+        if(!database.containsKey(firstName+lastName)) {
+            return false;
+        }
+        database.get(firstName+lastName).bumpFouls();
+        return true;
+    }
+
+    /**
      * increment a player's yellow cards
      *
      * @see SoccerDB#bumpYellowCards(String, String)
@@ -172,11 +186,15 @@ public class SoccerDatabase implements SoccerDB {
         String teamName = inFile.nextLine();
         int uniform = Integer.parseInt(inFile.nextLine());
         int goals = Integer.parseInt(inFile.nextLine());
+        int fouls = Integer.parseInt(inFile.nextLine());
         int yellowCards = Integer.parseInt(inFile.nextLine());
         int redCards = Integer.parseInt(inFile.nextLine());
         SoccerPlayer soccerPlayer = new SoccerPlayer(firstName,lastName,uniform,teamName);
         for(int i = 0; i < goals; i++) {
             soccerPlayer.bumpGoals();
+        }
+        for(int i = 0; i < fouls; i++) {
+            soccerPlayer.bumpFouls();
         }
         for(int i = 0; i < yellowCards; i++) {
             soccerPlayer.bumpYellowCards();
@@ -205,6 +223,7 @@ public class SoccerDatabase implements SoccerDB {
                 pw.println(s.getTeamName());
                 pw.println(s.getUniform());
                 pw.println(s.getGoals());
+                pw.println(s.getFouls());
                 pw.println(s.getRedCards());
                 pw.println(s.getYellowCards());
 

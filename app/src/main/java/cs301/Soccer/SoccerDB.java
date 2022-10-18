@@ -57,6 +57,15 @@ public interface SoccerDB {
     public boolean bumpGoals(String firstName, String lastName);
 
     /**
+     * Increments the number of fouls for a given player by one.
+     *
+     * @param firstName the player's first name
+     * @param lastName the player's last name
+     * @return true iff the operation was successful
+     */
+    public boolean bumpFouls(String firstName, String lastName);
+
+    /**
      * Increments the number of yellow cards for a given player by one.
      *
      * @param firstName the player's first name

@@ -14,6 +14,7 @@ public class SoccerPlayer {
     private String lastName; // last name
     private int uniformNum; // uniform number
     private int goalsScored; // goals scored
+    private int fouls; // fouls made
     private int yellowCards; // yellow cards shown
     private int redCards; // red cards shown
     private String teamName; // name of team
@@ -33,6 +34,7 @@ public class SoccerPlayer {
         uniformNum = uniform;
         teamName = team;
         goalsScored = 0;
+        fouls = 0;
         yellowCards = 0;
         redCards = 0;
     }
@@ -49,6 +51,9 @@ public class SoccerPlayer {
     }
     public int getGoals() {
         return goalsScored;
+    }
+    public int getFouls() {
+        return fouls;
     }
     public int getYellowCards() {
         return yellowCards;
@@ -68,6 +73,9 @@ public class SoccerPlayer {
     // "bump" methods, which increment the various stat fields
     public void bumpGoals() {
         goalsScored++;
+    }
+    public void bumpFouls() {
+        fouls++;
     }
     public void bumpYellowCards() {
         yellowCards++;

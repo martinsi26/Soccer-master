@@ -44,6 +44,7 @@ public class MainActivity extends Activity {
 
     // the non-editable text fields
     private EditText goalsField;
+    private EditText foulsField;
     private EditText yellowsField;
     private EditText redsField;
     private EditText countField;
@@ -54,6 +55,7 @@ public class MainActivity extends Activity {
     private Button removeButton;
     private Button clearButton;
     private Button incrGoalButton;
+    private Button incrFoulButton;
     private Button incrYellowCardButton;
     private Button incrRedCardButton;
     private Button countPlayersButton;
@@ -103,6 +105,7 @@ public class MainActivity extends Activity {
         uniformNumberField = (EditText)findViewById(R.id.uniform_num_field);
         fileNameField = (EditText)findViewById(R.id.file_name_field);
         goalsField = (EditText)findViewById(R.id.goals_field);
+        foulsField = (EditText)findViewById(R.id.fouls_field);
         yellowsField = (EditText)findViewById(R.id.yellow_cards_field);
         redsField = (EditText)findViewById(R.id.red_cards_field);
         countField = (EditText)findViewById(R.id.player_count_field);
@@ -111,6 +114,7 @@ public class MainActivity extends Activity {
         removeButton = (Button)findViewById(R.id.remove_player_button_widget);
         clearButton = (Button)findViewById(R.id.clear_database_button_widget);
         incrGoalButton = (Button)findViewById(R.id.incr_goal_button_widget);
+        incrFoulButton = (Button)findViewById(R.id.incr_foul_button_widget);
         incrYellowCardButton = (Button)findViewById(R.id.incr_yellow_card_button_widget);
         incrRedCardButton = (Button)findViewById(R.id.incr_red_card_button_widget);
         countPlayersButton = (Button)findViewById(R.id.count_players_button_widget);
@@ -145,6 +149,7 @@ public class MainActivity extends Activity {
         removeButton.setOnClickListener(new RemoveButtonListener());
         clearButton.setOnClickListener(new ClearButtonListener());
         incrGoalButton.setOnClickListener(new PlusGoalsButtonListener());
+        incrFoulButton.setOnClickListener(new PlusFoulsButtonListener());
         incrYellowCardButton.setOnClickListener(new PlusYellowsButtonListener());
         incrRedCardButton.setOnClickListener(new PlusRedsButtonListener());
         countPlayersButton.setOnClickListener(new CountButtonListener());
@@ -184,6 +189,7 @@ public class MainActivity extends Activity {
             teamNameField.setText(teamName);
             uniformNumberField.setText(uniformNumber + "");
             goalsField.setText(currentPlayer.getGoals() + "");
+            foulsField.setText(currentPlayer.getFouls() + "");
             yellowsField.setText(currentPlayer.getYellowCards() + "");
             redsField.setText(currentPlayer.getRedCards() + "");
         }
@@ -193,6 +199,7 @@ public class MainActivity extends Activity {
             teamNameField.setText("");
             uniformNumberField.setText("");
             goalsField.setText("");
+            foulsField.setText("");
             yellowsField.setText("");
             redsField.setText("");
         }
@@ -203,6 +210,7 @@ public class MainActivity extends Activity {
             teamNameField.setText("");
             uniformNumberField.setText("");
             goalsField.setText("");
+            foulsField.setText("");
             yellowsField.setText("");
             redsField.setText("");
         }
@@ -503,6 +511,16 @@ public class MainActivity extends Activity {
         @Override
         public boolean applyAction(String first, String last) {
             return database.bumpGoals(first, last);
+        }
+    }
+
+    /**
+     * listener class for the "+fouls card" button
+     */
+    private class PlusFoulsButtonListener extends PlusButtonListener {
+        @Override
+        public boolean applyAction(String first, String last) {
+            return database.bumpFouls(first, last);
         }
     }
 

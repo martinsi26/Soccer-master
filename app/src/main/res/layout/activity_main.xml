@@ -11,7 +11,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"/>
+        android:layout_weight="5" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -219,6 +219,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/foul_label" />
+
+        <EditText
+            android:id="@+id/fouls_field"
+            android:layout_width="50sp"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:editable="false"
+            android:focusable="false"
+            android:singleLine="true"
+            android:textColor="@color/edit_text_color" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/yellow_cards_label" />
 
         <EditText
@@ -276,6 +297,17 @@
             android:layout_height="wrap_content"
             android:text="@string/incr_goal_button"
             android:id="@+id/incr_goal_button_widget"
+            android:background="@color/button_color" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/incr_foul_button"
+            android:id="@+id/incr_foul_button_widget"
             android:background="@color/button_color" />
 
         <Space

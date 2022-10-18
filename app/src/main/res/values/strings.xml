@@ -8,9 +8,11 @@
     <string name="file_label">File: </string>
     <string name="uniform_number_label">Uniform number:</string>
     <string name="goals_label">Goals:</string>
+    <string name="foul_label">Fouls:</string>
     <string name="yellow_cards_label">Yellow cards:</string>
     <string name="red_cards_label">Red cards:</string>
     <string name="incr_goal_button">+goal</string>
+    <string name="incr_foul_button">+foul</string>
     <string name="incr_yellow_card_button">+yellow card</string>
     <string name="incr_red_card_button">+red card</string>
     <string name="count_players_button">count players</string>
@@ -24,4 +26,5 @@
     <string name="remove_player_button">Remove player</string>
     <string name="clear_database_button">Clear database</string>
     <string name="all_teams">### ALL ###</string>
+    <string name="fouls_label" />
 </resources>
